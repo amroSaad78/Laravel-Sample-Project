@@ -1,0 +1,1058 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@font-face {
+    font-family: "ElMessiri";
+    src: url("../fonts/El_Messiri/ElMessiri-Regular.ttf") format("truetype");
+}
+::-webkit-scrollbar {
+    width: 10px;
+    background: white;
+}
+::-webkit-scrollbar-thumb {
+    background: goldenrod;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "ElMessiri", Arial, Helvetica, sans-serif;
+}
+
+body {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+a {
+    text-decoration: none;
+    color: darkgray;
+    font-weight: 100;
+    transition: all 0.3s ease;
+}
+
+a:hover,
+a:focus {
+    color: dimgray;
+    font-weight: 900;
+}
+
+.en {
+    font-family: "Poppins";
+}
+li {
+    display: inline-block;
+}
+
+/*---------- Header section ------------*/
+header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    min-height: 3em;
+}
+
+header div {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.companyName h1,
+.companyName span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+}
+
+.companyName {
+    padding: 0 1em;
+    margin: 0.25em 0 0 0.25em;
+    color: white;
+    background-color: black;
+    border-radius: 1em 1em 0 0;
+}
+.companyName span {
+    color: goldenrod;
+}
+
+.terms ul li {
+    font-size: 0.85rem;
+    margin: 0 1em;
+}
+
+.toggler {
+    position: absolute;
+    display: none;
+    right: 1em;
+    top: 50%;
+    width: 2em;
+    min-height: 2em;
+    cursor: pointer;
+    border-radius: 0.3em;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid silver;
+    transform: translateY(-50%);
+}
+
+.toggler div {
+    height: 2px;
+    width: 20px;
+    margin: 2px 0;
+    background: silver;
+    transition: all 0.5s ease;
+}
+
+/*---------- Navbar and Menu section ------------*/
+
+.navbar,
+.menu {
+    display: block;
+    text-align: center;
+    background-color: black;
+}
+
+.navbar a,
+.menu a {
+    display: block;
+    color: whitesmoke;
+}
+
+.navbar a {
+    padding: 0.75em 0.5em;
+    font-size: 1.25rem;
+    position: relative;
+}
+
+.navbar a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    min-height: 3px;
+    transition: all 0.25s ease-in;
+    background-color: white;
+}
+
+.navbar a:hover::after {
+    transform: translateX(-50%);
+    width: 90%;
+}
+
+a.active {
+    cursor: none;
+    pointer-events: none;
+}
+
+.navbar a.active,
+.menu a.active {
+    color: goldenrod;
+    font-weight: 900;
+}
+
+.navbar a.active::after {
+    transform: translateX(-50%);
+    width: 90%;
+    background-color: goldenrod;
+}
+
+.menu a {
+    padding: 0.75em 0;
+    font-size: 2rem;
+}
+.menu li {
+    display: block;
+}
+.menu li:hover {
+    background-color: rgb(50, 50, 50);
+}
+
+/*---------- Hero & Services sections ------------*/
+.hero,
+.services,
+.lemozine,
+.conditions {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    background-size: cover;
+}
+.hero {
+    background-image: url("../images/background.jpg");
+}
+.services {
+    background-image: url("../images/servicebackground.jpg");
+}
+.lemozine {
+    background-image: url("../images/airport.jpg");
+}
+
+.conditions {
+    background-image: url("../images/conditions.jpg");
+}
+.services,
+.lemozine,
+.conditions {
+    display: flex;
+    justify-content: center;
+    background-position: center;
+}
+.services h1,
+.lemozine h1,
+.conditions h1 {
+    color: white;
+    font-size: 4rem;
+    margin: 0.5em 0;
+    text-shadow: 0 0 20px black;
+}
+.left {
+    position: relative;
+    min-height: 100%;
+    transition: all ease-in 0.5s;
+}
+
+.left .bags {
+    opacity: 0;
+    margin-right: 4em;
+    text-align: right;
+    animation-name: bags;
+    animation-delay: 150ms;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    transition: all ease-in 0.3s;
+}
+.left .car {
+    position: absolute;
+    opacity: 0;
+    bottom: 0;
+    animation-name: car;
+    animation-delay: 150ms;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    transition: all ease-in 0.3s;
+}
+.left .intro {
+    display: flex;
+    align-items: center;
+    min-height: 50%;
+    text-align: center;
+}
+
+.left .intro p {
+    color: white;
+    margin: 0 2em;
+    font-size: 3rem;
+    text-wrap: wrap;
+    direction: rtl;
+    line-height: 5rem;
+    text-align: justify;
+    text-overflow: ellipsis;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+.left .intro span {
+    color: goldenrod;
+}
+
+/*---------- Right And Form section ------------*/
+
+.right {
+    display: flex;
+    padding: 0 5em;
+    align-items: center;
+    justify-content: center;
+    transition: all ease-in 0.5s;
+}
+
+.right .booking {
+    padding: 5em 2em 1em;
+    position: relative;
+    border-radius: 2em;
+    border: solid white;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    position: absolute;
+    width: 12em;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+}
+
+.selections {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.selections select {
+    flex: 0.45;
+    direction: rtl;
+    font-size: 1.25rem;
+    outline: none;
+    padding: 1.5em 0 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: white;
+    background: transparent;
+}
+.error {
+    border-bottom: 2px solid red;
+}
+.selections select option {
+    color: black;
+}
+
+.automotive {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2em 0 0 0;
+}
+.automotive div {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.automotive > div > label {
+    position: absolute;
+    display: inline-block;
+    font-size: 1.25rem;
+    bottom: 0.5em;
+    z-index: 1;
+    color: dimgray;
+}
+.userCount {
+    left: 1em;
+}
+.bagCount {
+    right: 1em;
+}
+
+.automotive img {
+    border: 1px solid black;
+    border-radius: 1em;
+}
+.automotive p {
+    direction: rtl;
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: white;
+}
+
+.automotive p span {
+    color: goldenrod;
+}
+.automotive button {
+    padding: 0.25em 1em;
+    margin-top: 0.5em;
+    border: 1px solid white;
+    border-radius: 0.5em;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.5s ease-out;
+}
+.automotive button:hover,
+.automotive button:focus {
+    background: white;
+    color: black;
+}
+
+/*---------- Main section ------------*/
+
+.partsSec {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+}
+
+.partsSec .viewBtn {
+    text-align: center;
+    min-height: 6em;
+}
+.partsSec .viewBtn a {
+    display: inline-block;
+    width: 10em;
+    padding: 0.5em 0;
+    font-size: 1.25rem;
+    background-color: #fff;
+    color: dimgray;
+    border: 1px solid dimgray;
+    border-radius: 5em;
+    transition: all 0.3s ease;
+}
+
+.partsSec .viewBtn a:hover,
+.partsSec .viewBtn a:focus {
+    background-color: black;
+    color: white;
+}
+
+.partsSec h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: dimgray;
+    margin: 1em 0 0;
+}
+.partsSec h1 span {
+    color: goldenrod;
+}
+
+.partsSec h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: dimgrey;
+}
+
+.partsSec .spec {
+    display: flex;
+    margin: 2em 0;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.partsSec .spec > div {
+    text-align: center;
+    width: 16em;
+}
+
+.partsSec .spec span {
+    display: block;
+    font-size: 8rem;
+    color: silver;
+}
+.partsSec .spec .thumImg {
+    display: flex;
+    min-height: 10em;
+    margin: 0 auto 1em;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 2px solid dimgray;
+    border-radius: 10px;
+}
+.circle {
+    margin-top: 1.5em;
+    border: 2px solid gray;
+    border-radius: 1em;
+    box-shadow: 0 0 20px silver;
+}
+.partsSec img {
+    width: 90%;
+    transition: all ease-in-out 0.3s;
+}
+.partsSec img:hover,
+.partsSec img:focus {
+    transform: scale(0.8);
+}
+
+.partsSec .spec h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5em;
+    color: dimgrey;
+}
+
+.partsSec .spec p {
+    direction: rtl;
+    font-size: 1.25rem;
+    margin-bottom: 1em;
+    color: dimgray;
+}
+
+.imgSec {
+    display: flex;
+    min-height: 30em;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/cars.jpg");
+    background-attachment: fixed;
+    background-position: right top;
+    background-size: cover;
+}
+
+.imgSec div {
+    margin: 1em;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 10px white;
+}
+
+.imgSec p {
+    text-align: center;
+    color: whitesmoke;
+    padding: 1em;
+    font-size: 3rem;
+    font-weight: 900;
+    text-shadow: 0 0 3px black;
+}
+
+.reasonsSec {
+    display: flex;
+    justify-content: flex-end;
+    background-color: goldenrod;
+}
+.reasonsSec div {
+    text-align: right;
+    color: white;
+    margin: 2em 1.5em;
+}
+.reasonsSec img {
+    margin: 2em;
+    box-shadow: 0 0 1em white;
+    border-radius: 2em;
+}
+.reasonsSec h2 {
+    font-size: 3rem;
+    text-shadow: 0 0 5px black;
+}
+.reasonsSec ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.reasonsSec ul li {
+    margin: 0.5em 0;
+    font-size: 2rem;
+    min-width: 17em;
+    direction: rtl;
+}
+.reasonsSec ul li i {
+    font-size: 1.5rem;
+    margin-left: 0.5em;
+}
+
+.excellenceSec {
+    background-color: whitesmoke;
+    padding: 4em 1em;
+    display: flex;
+    text-align: right;
+    justify-content: space-around;
+}
+.excellenceSec > div {
+    flex: 50%;
+}
+
+.excellenceSec div h2 {
+    font-size: 2.5rem;
+    color: dimgrey;
+}
+
+.excellenceSec h2 span {
+    color: goldenrod;
+}
+
+.excellenceSec div h3 {
+    font-size: 2rem;
+    margin-bottom: 1em;
+    color: dimgray;
+}
+
+.excellenceSec div p {
+    font-size: 1.5rem;
+    direction: rtl;
+    text-align: justify;
+    color: dimgray;
+}
+
+.whyUs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dark,
+.light {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 10em;
+    min-height: 10em;
+}
+
+.dark span,
+.light span {
+    font-size: 3rem;
+}
+
+.dark h4,
+.light h4 {
+    font-size: 1rem;
+}
+
+.dark {
+    background-color: dimgray;
+    color: white;
+}
+.light {
+    background-color: white;
+    color: dimgray;
+}
+.svcp {
+    text-align: justify;
+}
+
+/*---------- Footer section ------------*/
+
+footer {
+    color: white;
+    display: flex;
+    padding: 4em 0;
+    background-color: rgb(20, 20, 20);
+}
+footer > div {
+    flex: 33.3%;
+    text-align: right;
+    padding: 0 3em;
+}
+footer .logoImg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer h2 {
+    text-align: right;
+    margin-bottom: 1em;
+    font-size: 2rem;
+}
+footer h2 span {
+    color: goldenrod;
+}
+.ourCv {
+    font-size: 1.75rem;
+    direction: rtl;
+    color: darkgray;
+    text-align: justify;
+}
+.phones {
+    font-size: 1.75rem;
+}
+.phones span {
+    color: darkgray;
+}
+.phones a:hover,
+.phones a:focus {
+    color: goldenrod;
+}
+.social {
+    text-align: center;
+    padding: 1em;
+}
+
+.social a {
+    padding: 0 0.5em;
+    font-size: 2.5rem;
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
+
+.social a:hover,
+.social a:focus {
+    cursor: pointer;
+    color: goldenrod;
+}
+
+@media (max-width: 1700px) {
+    .left .intro p {
+        font-size: 2.5rem;
+        line-height: 4rem;
+    }
+    .left .car img {
+        width: 700px;
+    }
+}
+
+@media (max-width: 1600px) {
+    .left .bags {
+        margin-right: 1em;
+    }
+    .left .bags img {
+        width: 250px;
+    }
+    .left .car img {
+        width: 680px;
+    }
+    .logo img {
+        width: 10em;
+    }
+}
+
+@media (max-width: 1400px) {
+    .left .bags img {
+        width: 200px;
+    }
+    .left .car img {
+        width: 650px;
+    }
+    .reasonsSec {
+        flex-direction: column-reverse;
+    }
+    .reasonsSec h2 {
+        font-size: 3.5rem;
+    }
+    .reasonsSec ul {
+        flex-direction: row;
+        justify-content: end;
+        flex-flow: row wrap;
+    }
+}
+
+@media (max-width: 1300px) {
+    .left .intro p {
+        font-size: 2rem;
+    }
+    .left .car img {
+        width: 600px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .hero {
+        flex-direction: column-reverse;
+    }
+    .excellenceSec {
+        flex-direction: column-reverse;
+    }
+    footer {
+        flex-direction: column-reverse;
+        padding: 0;
+    }
+    footer > div {
+        padding: 0 1em;
+    }
+    footer div h2 {
+        margin: 1.5em 0 0.5em;
+        font-size: 2.5rem;
+    }
+    footer .logoImg {
+        margin-top: 1.5em;
+    }
+    .excellenceSec {
+        padding: 1em;
+    }
+    .excellenceSec > div {
+        margin: 1.5em 0;
+    }
+    .left .intro {
+        margin: 4em 0;
+    }
+    .left .intro p {
+        font-size: 3rem;
+        line-height: 5rem;
+    }
+    .left .bags {
+        margin-right: 4em;
+    }
+    .left .bags img {
+        width: 297px;
+    }
+    .left .car img {
+        width: 800px;
+    }
+    .right {
+        margin-top: 8em;
+    }
+    .logo img {
+        width: 15em;
+    }
+    .imgSec p {
+        font-size: 2rem;
+    }
+    .partsSec .spec div {
+        width: 90%;
+    }
+    .reasonsSec ul li {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 960px) {
+    .left .bags img {
+        width: 260px;
+    }
+    .left .car img {
+        width: 720px;
+    }
+    .reasonsSec ul li {
+        font-size: 2.5rem;
+        margin: 0.5em 0;
+    }
+}
+
+@media (max-width: 800px) {
+    .left .intro p {
+        font-size: 2.5rem;
+    }
+    .left .bags {
+        margin-right: 1em;
+    }
+    .left .bags img {
+        width: 240px;
+    }
+    .left .car {
+        animation-name: car-small-left-margin;
+    }
+    .left .car img {
+        width: 660px;
+    }
+}
+
+@media (max-width: 700px) {
+    .left .car img {
+        width: 600px;
+    }
+}
+
+@media (max-width: 660px) {
+    .left .car img {
+        width: 560px;
+    }
+    .right {
+        margin-top: 5em;
+        padding: 0 1em;
+    }
+    .right .booking {
+        padding: 3em 1em 2em;
+    }
+    .logo img {
+        width: 10em;
+    }
+    .selections {
+        flex-direction: column-reverse;
+    }
+    .automotive {
+        padding-top: 0.5em;
+    }
+    .automotive img {
+        width: 350px;
+    }
+    .automotive > div > label {
+        font-size: 1rem;
+        bottom: 0;
+    }
+    .userCount {
+        left: 1.25em;
+    }
+    .bagCount {
+        right: 1.25em;
+    }
+    .imgSec p {
+        font-size: 1.5rem;
+    }
+    .partsSec h1 {
+        font-size: 2rem;
+    }
+
+    .partsSec h2 {
+        font-size: 1.5rem;
+    }
+    .reasonsSec h2 {
+        font-size: 2.75rem;
+    }
+    .reasonsSec ul li {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 580px) {
+    .left .intro p {
+        font-size: 2rem;
+        line-height: 3.5rem;
+    }
+    .left .bags img {
+        width: 200px;
+    }
+    .left .car img {
+        width: 500px;
+    }
+    .reasonsSec div {
+        margin: 2em 1em;
+    }
+}
+
+@media (max-width: 500px) {
+    .terms {
+        display: none;
+    }
+    .navbar {
+        display: none;
+    }
+    .toggler {
+        display: flex;
+    }
+    .left .intro p {
+        margin: 1em;
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+    .left .bags img {
+        width: 120px;
+    }
+    .left .car img {
+        width: 320px;
+    }
+    .logo img {
+        width: 8em;
+    }
+    .reasonsSec h2 {
+        font-size: 2rem;
+    }
+    .reasonsSec ul li {
+        font-size: 1.5rem;
+    }
+    .reasonsSec ul li i {
+        font-size: 1rem;
+    }
+    .excellenceSec {
+        padding: 0.75em;
+    }
+    .excellenceSec div h2 {
+        font-size: 1.75rem;
+    }
+    .excellenceSec div h3 {
+        font-size: 1.5rem;
+    }
+    .excellenceSec div p {
+        font-size: 1.5rem;
+    }
+    footer > div {
+        padding: 0.75em;
+    }
+    footer div h2 {
+        font-size: 1.75rem;
+    }
+    .ourCv {
+        font-size: 1.5rem;
+    }
+    .phones {
+        font-size: 1.5rem;
+    }
+    .services h1,
+    .lemozine h1,
+    .conditions h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 414px) {
+    .reasonsSec ul li {
+        font-size: 1.25rem;
+    }
+    .right .booking {
+        padding-bottom: 0.25em;
+    }
+    .automotive img {
+        width: 280px;
+    }
+    .automotive button {
+        font-size: 1rem;
+        margin-bottom: 0.25em;
+    }
+    .automotive p {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .left .intro {
+        margin: 2em 0;
+    }
+    .left .intro p {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+    .left .bags img {
+        width: 100px;
+    }
+    .left .car img {
+        width: 240px;
+    }
+    .right {
+        padding: 0.5em;
+    }
+    .automotive img {
+        width: 200px;
+    }
+    .reasonsSec div {
+        margin: 1em 0.25em;
+    }
+    .reasonsSec ul li {
+        font-size: 1rem;
+    }
+    .reasonsSec ul li i {
+        font-size: 1rem;
+    }
+    .dark,
+    .light {
+        width: 8em;
+        min-height: 8em;
+    }
+    .social a {
+        font-size: 2rem;
+    }
+    .services h1,
+    .lemozine h1,
+    .conditions h1 {
+        font-size: 2.25rem;
+    }
+}
+
+@keyframes bags {
+    0% {
+        opacity: 0;
+    }
+    15%,
+    65% {
+        opacity: 1;
+    }
+    80%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes car {
+    0%,
+    15% {
+        transform: translateX(-100%);
+    }
+    20%,
+    95% {
+        opacity: 1;
+        transform: translate(4em, 7%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(50%, 7%);
+    }
+}
+
+@keyframes car-small-left-margin {
+    0%,
+    15% {
+        transform: translateX(-100%);
+    }
+    20%,
+    95% {
+        opacity: 1;
+        transform: translate(1em, 7%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(50%, 7%);
+    }
+}
