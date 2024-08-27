@@ -1,1 +1,1 @@
-<p align="center">##Laravel Sample Project</p>
+<p align="center">Laravel Sample Project</p>
